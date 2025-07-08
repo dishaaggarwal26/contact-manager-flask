@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Manager</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-purple-200 p-6">
+    <h1 class="text-3xl font-bold mb-4">Contact List</h1>
+    <a href="/add" class="bg-pink-400 text-white px-4 py-2 rounded hover:bg-pink-600 inline-block mb-4">Add New Content</a>
+    <div class="flex justify-center w-full">
+            <table class=" mx-auto bg-white shadow-md rounded w-4/5 table-auto ">
+        <thead class="bg-purple-300">
+            <tr>
+                <th class="py-2 px-4 border-b ">Name</th>
+                <th class="py-2 px-4 border-b">Addresss</th>
+                <th class="py-2 px-4 border-b">Email</th>
+                <th class="py-2 px-4 border-b">Phone</th>
+                <th class="py-2 px-4 border-b">Actions</th>
+            </tr>
+        
+        </thead>
+
+        <tbody >
+            {% for contact in contacts %}
+        <tr class="hover:bg-pink-100">
+            <td class="py-2 px-4 border-b text-center">{{contact.first_name}} {{contact.last_name}}</td>
+            <td class="py-2 px-4 border-b text-center">{{contact.address}}</td>
+            <td class="py-2 px-4 border-b text-center">{{contact.email}}</td>
+            <td class="py-2 px-4 border-b text-center">{{contact.phone}}</td>
+            <td class="py-2 px-4 border-b text-center">
+                <a href="/update/{{contact.id}}" class="bg-purple-500 text-white px-2 py-1 rounded hover:bg-purple-600">Edit</a>
+                <a href="/delete/{{contact.id}}" class="bg-purple-500 text-white px-2 py-1 rounded hover:bg-red-600">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>

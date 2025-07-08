@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Contact</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 bg-pink-200">
+    <h1 class="text-3xl font-bold pt-3 text-center " style="text-shadow: 2px 2px 4px rgb(228, 66, 201);">Update Contact</h1>
+    <div class="flex justify-center w-full h-screen ">
+            <form action="/update/{{ contact.id }}" method="post" class="bg-white mx-auto mt-6 p-6 rounded shadow-md w-3/6 h-4/5 border-2 border-pink-600">
+        <div class="mb-4">
+            <label class="font-bold">First Name</label>
+            <input type="text" name="first_name" value="{{ contact.first_name }}" class="w-full border border-gray-400 p-2 rounded mt-1" required>
+        </div>
+        <div class="mb-4">
+            <label class="font-bold">Last Name</label>
+            <input type="text" name="last_name" value="{{ contact.last_name }}" class="w-full border p-2 rounded mt-1 border border-gray-400" required>
+        </div>
+        <div class="mb-4">
+            <label class="font-bold">Address</label>
+            <input type="text" name="address" value="{{ contact.address }}" class="w-full border p-2 rounded mt-1 border border-gray-400">
+        </div>
+        <div class="mb-4">
+            <label class="font-bold">Email</label>
+            <input type="email" name="email" value="{{ contact.email }}" class="w-full border p-2 rounded mt-1 border border-gray-400">
+        </div>
+        <div class="mb-4">
+            <label class="font-bold">Phone</label>
+            <input type="text" name="phone" value="{{ contact.phone }}" class="w-full border p-2 rounded mt-1 border border-gray-400">
+        </div>
+        <button type="submit" class="bg-pink-500 text-white px-4 py-2 mt-2 rounded hover:bg-pink-600">Update Contact</button>
+        <a href="/">Back</a>
+    </form>
+    </div>
+</body>
+</html>
