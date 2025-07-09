@@ -36,7 +36,7 @@ def add():
         phone = request.form['phone']
 
         if not isvalidemail(email):
-            flash("invalid email format, please enter a valid email , it should include @ and .")
+            flash("invalid email format, please enter a valid email")
             return render_template('add.html')
         
         conn = get_db_connection()
@@ -71,7 +71,7 @@ def update(id):
         phone = request.form['phone']
 
         if not isvalidemail(email):
-            flash("invalid email format, please enter a valid email ,it should include @ and .")
+            flash("invalid email format, please enter a valid email")
             return render_template('update.html',contact=contact)
         
         with conn.cursor() as cursor:
